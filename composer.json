@@ -1,0 +1,33 @@
+{
+    "name": "xenokore/config",
+    "version": "1.0.0",
+    "type": "library",
+    "description": "Configuration library",
+    "keywords": ["config"],
+    "homepage": "https://xenokore.com",
+    "license": "MIT",
+    "authors": [{
+        "name": "Yani B.",
+        "email": "yani@xenokore.com",
+        "homepage": "https://xenokore.com",
+        "role": "Developer"
+    }],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Xenokore\\Config\\": "src/"
+        },
+        "classmap": ["src/"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Xenokore\\Config\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "xenokore/utility": "^1.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.1@dev"
+    }
+}
