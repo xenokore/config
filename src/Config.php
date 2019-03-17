@@ -131,16 +131,16 @@ class Config extends \ArrayObject implements ConfigInterface, \ArrayAccess
             return;
         }
 
-        // We're if working in a config subkey
+        // If working in a config subkey
         $exp    = explode('.', $config);
         $config = array_shift($exp);
         $key    = implode('.', $exp);
 
-        if (isset($this->config[$config]) && is_array($this->config[$config])) {
-            ArrayHelper::set($this->config[$config], $key, $value);
-        } else {
-            $this->config[$config] = $value;
+        if (!isset($this->config[$config]) || !is_array($this->config[$config])) {
+            $this->config[$config] = [];
         }
+
+        ArrayHelper::set($this->config[$config], $key, $value);
     }
 
     public function offsetSet($config, $value): void

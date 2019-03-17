@@ -65,11 +65,19 @@ class ConfigTest extends TestCase
     {
         $config = new Config();
 
+        $this->assertEquals(null, $config->get('test'));
         $this->assertEquals(null, $config->get('test.var'));
+        $this->assertEquals(null, $config->get('test.var2'));
+
+        $config->set('test', 'hello');
+        $this->assertIsString($config->get('test'));
 
         $config->set('test.var', 'abc');
+        $config->set('test.var2', 'xyz');
 
+        $this->assertIsArray($config->get('test'));
         $this->assertEquals('abc', $config->get('test.var'));
+        $this->assertEquals('xyz', $config->get('test.var2'));
     }
 
     public function testDefault()
